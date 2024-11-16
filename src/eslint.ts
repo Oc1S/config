@@ -15,17 +15,12 @@ const baseConfig = {
     es6: true,
     node: true,
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'solid'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:solid/recommended',
-  ],
+  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   rules: {
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     'no-redeclare': 'warn',
+    'no-debugger': 'warn',
+    'prefer-const': 'off',
     'simple-import-sort/imports': [
       'warn',
       {
@@ -39,7 +34,7 @@ const baseConfig = {
           ['^react', '^solid', '^vue', '^@?\\w'],
           // Absolute imports and other imports such as Vue-style `@/foo`.
           // Anything not matched in another group.
-          ['^', '^@tab\\/'],
+          ['^'],
           // Relative imports.
           // Anything that starts with a dot.
           ['^\\.'],
@@ -47,11 +42,6 @@ const baseConfig = {
       },
     ],
     'simple-import-sort/exports': 'warn',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-namespace': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'no-debugger': 'warn',
-    'prefer-const': 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
@@ -60,9 +50,26 @@ const baseConfig = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
   },
 }
 
-export const getEslintConfig = (config: any) => {
+const solidConfig = {
+  plugins: ['solid'],
+  extends: ['plugin:solid/recommended'],
+}
+
+export const getEslintConfig = (
+  type: 'react' | 'solid',
+  config: unknown = {}
+) => {
+  if (type === 'solid') {
+    return merge({}, baseConfig, solidConfig, config)
+  }
   return merge({}, baseConfig, config)
 }

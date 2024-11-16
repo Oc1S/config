@@ -8,6 +8,6 @@ const baseConfig = {
   tailwindFunctions: ['clsx', 'cx', 'cn'],
 }
 
-export const getPrettierConfig = (config: any) => {
+export const getPrettierConfig = (config: unknown = {}) => {
   return merge({}, baseConfig, config)
 }
