@@ -1,8 +1,8 @@
 {
   "name": "@kiefer/config",
   "version": "0.0.1",
-  "main": "index.ts",
-  "module": "index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
