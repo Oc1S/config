@@ -16,7 +16,11 @@ const baseConfig = {
     node: true,
   },
   plugins: ['@typescript-eslint', 'simple-import-sort'],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
   rules: {
     'no-redeclare': 'warn',
     'no-debugger': 'warn',
@@ -59,6 +63,13 @@ const baseConfig = {
   },
 }
 
+const reactConfig = {
+  plugins: ['react'],
+  rules: {
+    'react/self-closing-comp': 'warn',
+  },
+}
+
 const solidConfig = {
   plugins: ['solid'],
   extends: ['plugin:solid/recommended'],
@@ -71,5 +82,5 @@ export const getEslintConfig = (
   if (type === 'solid') {
     return merge({}, baseConfig, solidConfig, config)
   }
-  return merge({}, baseConfig, config)
+  return merge({}, baseConfig, reactConfig, config)
 }

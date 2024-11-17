@@ -8,7 +8,8 @@
     "start": "tsup --watch",
     "build": "tsup",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepublishOnly": "npm run build"
   },
   "exports": {
     "import": {
@@ -24,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-solid": "^0.14.1",
     "lodash.merge": "^4.6.2",
@@ -36,3 +38,4 @@
     "typescript": "^5.0.0"
   }
 }
+
