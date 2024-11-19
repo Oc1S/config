@@ -1,8 +1,6 @@
 {
   "name": "@kiefer/config",
-  "version": "0.0.1",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
@@ -12,6 +10,8 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "prepublishOnly": "npm run build"
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "exports": {
     "import": {
       "types": "./dist/index.d.ts",
@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^7.5.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-solid": "^0.14.1",
     "lodash.merge": "^4.6.2",
