@@ -1,0 +1,106 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["node_modules", "dist", "build", "public", "plasmo"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": {
+          "level": "info",
+          "fix": "safe",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["clsx", "cx"]
+          }
+        }
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "noUnusedVariables": "warn",
+        "noUnusedImports": {
+          "level": "warn",
+          "fix": "none"
+        }
+      },
+      "complexity": {
+        "noUselessSwitchCase": "off",
+        "noUselessFragments": "off",
+        "noForEach": "off"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useKeyWithClickEvents": "off",
+        "useAltText": "off"
+      },
+      "style": {
+        "noUselessElse": "off",
+        "useNumberNamespace": "off",
+        "useConst": "off",
+        "noUnusedTemplateLiteral": {
+          "level": "warn",
+          "fix": "safe"
+        },
+        "useTemplate": {
+          "level": "warn",
+          "fix": "safe"
+        },
+        "noNonNullAssertion": "off",
+        "useSelfClosingElements": {
+          "level": "warn",
+          "fix": "safe"
+        }
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+        "useDefaultSwitchClauseLast": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "attributePosition": "auto"
+    }
+  },
+  "overrides": [
+    {
+      "include": ["*.d.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    }
+  ]
+}
+

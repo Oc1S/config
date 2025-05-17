@@ -76,11 +76,14 @@ const solidConfig = {
 }
 
 export const getEslintConfig = (
-  type: 'react' | 'solid',
+  type: 'react' | 'solid' | 'default' = 'default',
   config: unknown = {}
 ) => {
+  if (type === 'react') {
+    return merge({}, baseConfig, reactConfig, config)
+  }
   if (type === 'solid') {
     return merge({}, baseConfig, solidConfig, config)
   }
-  return merge({}, baseConfig, reactConfig, config)
+  return merge({}, baseConfig, config)
 }
